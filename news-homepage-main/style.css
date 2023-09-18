@@ -1,0 +1,391 @@
+@font-face {
+  font-family: inter-bold;
+  src: url("./assets/fonts/static/Inter-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: inter-extra-bold;
+  src: url("./assets/fonts/static/Inter-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: inter-regular;
+  src: url("./assets/fonts/static/Inter-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: inter-variable;
+  src: url("./assets/fonts/Inter-VariableFont_slnt\,wght.ttf")
+    format("truetype");
+}
+
+:root {
+  --soft-orange: hsl(35, 77%, 62%);
+  --soft-red: hsl(5, 85%, 63%);
+  --off-white: hsl(36, 100%, 99%);
+  --grayish-blue: hsl(233, 8%, 79%);
+  --dark-grayish-blue: hsl(236, 13%, 42%);
+  --very-dark-blue: hsl(240, 100%, 5%);
+  --regular-font-size: clamp(0.95rem, 1vw, 1.5rem);
+}
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+html {
+  width: 100%;
+}
+body {
+  background-color: var(--off-white);
+  width: inherit;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    " navigation "
+    " hero"
+    " footer ";
+  padding: 5rem 8dvw;
+  gap: 3.5rem;
+}
+
+/* ^ navigation bar starts */
+nav {
+  grid-area: navigation;
+  display: flex;
+  justify-content: space-between;
+}
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 2.15rem;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-family: inter-bold;
+}
+nav ul li a {
+  color: var(--dark-grayish-blue);
+  font-size: var(--regular-font-size);
+  transition: color 0.3s;
+}
+nav ul li a:hover {
+  color: var(--soft-red);
+}
+
+/* ^ nav icons  */
+nav .icons {
+  display: none;
+}
+
+/* ^ navigation bar ends */
+
+/* ^hero grid with 3 columns */
+.hero {
+  grid-area: hero;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    " heroleft heroleft newcard"
+    "heroleft heroleft newcard";
+  gap: 1.5rem;
+}
+
+/* ^ hero page left with 2 grid columns */
+.hero .hero-left {
+  grid-area: heroleft;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-rows: 1.5fr 1fr;
+  gap: 1.5rem;
+  grid-template-areas:
+    "bgimage bgimage"
+    "heading  readmore";
+}
+
+/* ^ first row image */
+.hero .hero-left .background-image1 {
+  grid-area: bgimage;
+  background-image: url("./assets/images/image-web-3-desktop.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* ^ seconf row content */
+.hero .hero-left .heading {
+  grid-area: heading;
+  font-family: inter-extra-bold;
+  color: var(--very-dark-blue);
+  font-size: clamp(1rem, 2vw, 2rem);
+}
+.hero .hero-left .read-more {
+  grid-area: readmore;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+  font-family: inter-variable;
+  font-weight: 500;
+  font-size: var(--regular-font-size);
+}
+.hero .hero-left .read-more p {
+  color: var(--dark-grayish-blue);
+  line-height: 1.75rem;
+}
+.hero .hero-left .read-more a {
+  color: var(--off-white);
+  background-color: var(--soft-red);
+  width: max-content;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+  padding: 1rem 1.75rem;
+  transition: all 0.3s;
+}
+.hero .read-more a:hover {
+  background-color: var(--very-dark-blue);
+}
+
+/* ^ hero page right newcard starts */
+.hero .newcard {
+  grid-area: newcard;
+  background-color: var(--very-dark-blue);
+  color: var(--off-white);
+  padding: 1.5rem 2rem 1.5dvw;
+}
+.hero .newcard h1 {
+  color: var(--soft-orange);
+  font-family: inter-bold;
+  font-size: clamp(2rem, 2.5vw, 2.75rem);
+  padding-bottom: 1.5rem;
+  padding-top: 1dvh;
+}
+.hero .newcard .card-content div:first-child {
+  padding-bottom: 1.75rem;
+}
+.hero .newcard .card-content div:last-child {
+  padding-top: 1.75rem;
+}
+.hero .newcard .card-content div:nth-child(2) {
+  border-top: 1px solid var(--grayish-blue);
+  border-bottom: 1px solid var(--grayish-blue);
+  padding-block: 1.75rem;
+}
+.hero .newcard div h3 {
+  font-family: inter-bold;
+  font-size: clamp(1.35rem, 1.5vw, 2rem);
+  color: var(--off-white);
+  margin-bottom: 0.5rem;
+  transition: color 0.3s;
+}
+.hero .newcard div h3:hover {
+  color: var(--soft-orange);
+}
+.hero .newcard div p {
+  font-family: inter-regular;
+  font-weight: 100;
+  word-spacing: 2px;
+  line-height: 2rem;
+  color: var(--grayish-blue);
+  font-size: var(--regular-font-size);
+}
+
+/* ^ footer with 3 grid columns starts */
+.footer-cards {
+  grid-area: footer;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ^each card with 2 grid columns */
+.footer-cards .footer-card {
+  display: grid;
+  grid-template-columns: 7rem 1fr 1fr;
+  grid-template-areas: "footimage footcontent footcontent";
+  gap: 1.5rem;
+}
+.footer-cards .card-image {
+  grid-area: footimage;
+  background-image: url("./assets/images/image-retro-pcs.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.footer-cards .footer-card-content {
+  grid-area: footcontent;
+  display: grid;
+  gap: 0.75rem;
+}
+.footer-cards .footer-card-content h1 {
+  color: var(--grayish-blue);
+  font-family: inter-bold;
+  font-size: clamp(2rem, 1.5vw, 2.5rem);
+}
+.footer-cards .footer-card-content h3 {
+  color: var(--very-dark-blue);
+  font-family: inter-extra-bold;
+  font-size: clamp(1.25rem, 1.25vw, 1.75rem);
+  transition: color 0.3s;
+}
+.footer-cards .footer-card-content h3:hover {
+  color: var(--soft-red);
+}
+.footer-cards .footer-card-content p {
+  color: var(--dark-grayish-blue);
+  font-family: inter-variable;
+  font-weight: 500;
+  line-height: 1.5rem;
+  font-weight: normal;
+  padding-right: 1.5rem;
+  font-size: var(--regular-font-size);
+}
+.footer-cards .secondimg {
+  background-image: url("./assets/images/image-top-laptops.jpg");
+}
+.footer-cards .thirdimg {
+  background-image: url("./assets/images/image-gaming-growth.jpg");
+}
+
+/* ^ mobile menu */
+.mobile-menu {
+  display: none;
+}
+
+/* ! mobiule view */
+
+@media (max-width: 450px) {
+  /*^ grid layout */
+  body {
+    gap: 0;
+    padding-inline: 1.25rem;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+  }
+
+  /* ^nav bar */
+  nav ul {
+    display: none;
+  }
+  nav .icons {
+    display: grid;
+    place-content: center;
+  }
+
+  /* ^ hero page */
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      " heroleft"
+      "newcard";
+    margin-bottom: 3.5rem;
+    margin-top: 2rem;
+    gap: 3.5rem;
+  }
+  /* ^hero left */
+  .hero .hero-left {
+    grid-area: heroleft;
+    grid-template-columns: 1fr;
+    grid-template-rows: 17.5rem 1fr 1fr;
+    grid-template-areas:
+      "bgimage "
+      "heading "
+      "readmore ";
+    gap: 0;
+  }
+  /* ^ footer  */
+  .footer-cards {
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  /* ^ fontsize */
+  .hero .hero-left .heading {
+    width: 85%;
+    font-size: 1.29rem;
+    margin-block: 1.25rem;
+  }
+  .hero .hero-left .read-more {
+    font-size: 0.9rem;
+  }
+  .hero .newcard h1 {
+    font-size: 2rem;
+  }
+  .hero .newcard div h3 {
+    font-size: 1.2rem;
+  }
+  .hero .newcard div p {
+    font-size: 0.91rem;
+  }
+  .footer-cards .footer-card-content h1 {
+    font-size: 2.25rem;
+  }
+  .footer-cards .footer-card-content h3 {
+    font-size: 1.1rem;
+  }
+  .footer-cards .footer-card-content p {
+    font-size: 0.9rem;
+    padding: 0;
+    font-weight: 500;
+  }
+  .hero .newcard {
+    padding-inline: 1rem;
+    padding-block: 1.5rem;
+  }
+  .hero .hero-left .background-image1 {
+    background-image: url("./assets/images/image-web-3-mobile.jpg");
+    background-size: cover;
+  }
+  .footer-cards .footer-card {
+    grid-template-columns: 6.5rem 1fr 1fr;
+  }
+
+  /* ^ nav icons */
+  nav div svg {
+    scale: 0.7;
+  }
+  nav .icons svg {
+    scale: 1;
+  }
+
+  /* ^ mobile menu */
+  .mobile-menu {
+    width: 0%;
+    height: 100dvh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: var(--off-white);
+    display: grid;
+    z-index: 2;
+    grid-template-rows: 6rem 1fr;
+  }
+  .mobile-menu .close-icon {
+    display: flex;
+    align-items: center;
+    padding-inline-end: 1.4rem;
+    justify-content: flex-end;
+  }
+  .mobile-menu .close-icon svg {
+    scale: 0;
+  }
+  .mobile-menu ul {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-family: inter-bold;
+    font-size: 1.25rem;
+    color: var(--dark-grayish-blue);
+  }
+  .mobile-menu ul li a {
+    color: var(--dark-grayish-blue);
+    transition: color 0.3s;
+  }
+  .mobile-menu ul li a:hover {
+    color: var(--soft-red);
+  }
+  .overlay {
+    position: fixed;
+    display: none;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}
